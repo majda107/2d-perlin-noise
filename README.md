@@ -15,6 +15,6 @@ Don't look at the Game.cs part, just for test and visualizing purposes...
 
 ## Screenshots
 
-![2D noise](https://imgur.com/lEiVx1r)
-![3D noise 1](https://imgur.com/vtVbnik)
-![3D noise 2](https://imgur.com/pGPLsOD)
+![2D noise](https://imgur.com/lEiVx1r.png)
+![3D noise 1](https://imgur.com/vtVbnik.png)
+![3D noise 2](https://imgur.com/pGPLsOD.png)
