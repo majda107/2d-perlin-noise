@@ -32,7 +32,7 @@ namespace PerlinNoise.Engine
 
             this.PNGenerator = new PerlinNoiseGenerator("123456");
 
-            this.Mode = 2;
+            this.Mode = 1;
             this.Octaves = 8;
             this.Bias = 1.0f;
             this.Height = 20;
