@@ -25,6 +25,7 @@ namespace PerlinNoise.Engine
         public int Height { get; private set; }
         public int Resolution { get; private set; }
 
+        public float Zoom { get; private set; }
         public Game(int width, int height)
         {
             this.Display = new Display(width, height);
@@ -37,6 +38,8 @@ namespace PerlinNoise.Engine
             this.Bias = 1.0f;
             this.Height = 20;
             this.Resolution = 256;
+
+            this.Zoom = 1.0f;
 
             this.Init();
 
@@ -82,6 +85,12 @@ namespace PerlinNoise.Engine
                     Console.WriteLine($"Resolution set to: {this.Resolution}");
                     this.GeneratePerlinNoise();
                     break;
+                case '+':
+                    this.Zoom += 0.1f;
+                    break;
+                case '-':
+                    this.Zoom -= 0.1f;
+                    break;
             }
         }
 
@@ -118,7 +127,7 @@ namespace PerlinNoise.Engine
         {
             this.CreatePerspectiveProjection(45f);
             GL.MatrixMode(MatrixMode.Modelview);
-            var lookAt = Matrix4.LookAt(new Vector3(this.Display.Width / 2, this.Display.Width / 3 + this.Height*2, -this.Display.Width / 2), new Vector3(this.Display.Width / 2, this.Display.Width / 6 + this.Height, 0), Vector3.UnitY);
+            var lookAt = Matrix4.LookAt(new Vector3(this.Display.Width / 2, (this.Display.Width / 3 + this.Height*2)*this.Zoom, (-this.Display.Width / 2)*this.Zoom), new Vector3(this.Display.Width / 2, (this.Display.Width / 6 + this.Height)*this.Zoom, 0), Vector3.UnitY);
             GL.LoadMatrix(ref lookAt);
 
             GL.Begin(PrimitiveType.Quads);
